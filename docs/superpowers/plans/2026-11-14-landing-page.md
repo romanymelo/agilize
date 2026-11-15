@@ -8,6 +8,8 @@
 
 **Stack:** HTML5, CSS (custom properties, grid/flex), Python 3.12 (`py -V:3.12`) com Playwright já instalado (`channel="chrome"`).
 
+> **Nota (2026-11-15):** este plano é o histórico da primeira construção. A seção "Atualizações depois da aprovação" do design e o `README.md` prevalecem (hospedagem no Vercel, fonte embutida em base64 no lugar de `fonts/Rajdhani-Bold.ttf`, 3 botões do WhatsApp, rodapé sem botão).
+
 **Spec:** `Page/docs/2026-11-14-landing-page-design.md` · modelo do topo: `Page/docs/modelo-topo-aprovado.html`
 
 **Git:** o plano foi escrito antes do `git init`; na execução cada tarefa terminou com commit e verificação. Estado atual da hospedagem e do repositório: ver `README.md`.

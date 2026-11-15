@@ -41,7 +41,8 @@ Em cerca de 30 segundos o Vercel publica. Sem etapa de build.
 |---|---|
 | Texto de uma seção | `index.html`, dentro da `<section>` de mesmo `id`: `dor`, `emite`, `como`, `telas`, `detalhes`, `requisitos`, `teste` |
 | Frase do topo, comparativo "Hoje × Com o Agilize" | `<section class="topo">` |
-| Número ou mensagem do WhatsApp | O link `https://wa.me/5582993079508?text=...` aparece **3 vezes** no `index.html` (cabeçalho, topo, final). Troque nos 3 e em `WHATSAPP` no `testes/verificar.py`. A mensagem vai codificada na URL |
+| Número ou mensagem do WhatsApp | O link `https://wa.me/5582993079508?text=...` aparece **3 vezes** no `index.html` (cabeçalho, topo, final). Troque nos 3 e em `WHATSAPP` no `testes/verificar.py`.
+| Frases sobre o que o programa faz | Mantenha fiel ao `V_3/README.md`. Pontos que já geraram correção: com a caixa Guia marcada o DAR é **sempre reemitido** (o portal cancela o anterior); o lote **pausa** para perguntar a data de guia vencida; a planilha **exige linha de cabeçalho**; o acesso é de **um computador** por licença | A mensagem vai codificada na URL |
 | Cores | Variáveis em `:root` no topo do `css/style.css` (vêm do tema "Lagoa" do programa, versão escura) |
 | Layout de celular | Bloco `@media (max-width: 720px)` no fim do `css/style.css` |
 | Título, descrição e prévia ao compartilhar | `<head>` do `index.html` (`title`, `description`, `og:*`) |
@@ -80,7 +81,7 @@ py -V:3.12 testes/prints.py      # esperado: desktop e celular "OK"; prints em t
 
 Se o `py -V:3.12` não funcionar no seu terminal, use o caminho completo do `python.exe` da instalação 3.12.
 
-O `verificar.py` confere: arquivos referenciados existem, todos os links `wa.me` são iguais ao oficial e abrem em nova aba, ausência de preço e jargão, imagens ≤ 300 KB e presença de título, descrição, `og:image` e ícone. O `prints.py` falha se houver rolagem lateral em 1366 px ou 375 px.
+O `verificar.py` confere: arquivos referenciados existem; há exatamente 3 links `wa.me`, todos iguais ao oficial, em nova aba e com `rel=noopener`; ausência de preço, jargão, Certidão e do nome e telefone do autor, tanto no texto quanto em `alt`, `title` e `meta`; imagens ≤ 300 KB; e presença de título, descrição, ícone e `og:image` com endereço absoluto (`https://`). Se mudar a quantidade de botões, ajuste `QTD_BOTOES` no script. O `prints.py` falha se houver rolagem lateral em 1366 px ou 375 px.
 
 ## Publicar e hospedagem
 

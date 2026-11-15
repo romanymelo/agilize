@@ -7,7 +7,8 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 WHATSAPP = ("https://wa.me/5582993079508?text=Ol%C3%A1%21%20Quero%20testar%20o%20"
             "Agilize%20Relat%C3%B3rios%20por%207%20dias.")
-PROIBIDAS = ["r$", "preço", "playwright", "supabase", "python"]
+PROIBIDAS = ["r$", "preço", "playwright", "supabase", "python", "certidão", "romany", "99307"]
+QTD_BOTOES = 3
 LIMITE_IMG = 300 * 1024
 
 
@@ -16,10 +17,14 @@ class Leitor(HTMLParser):
         super().__init__()
         self.tags = []      # (tag, attrs)
         self.texto = []
+        self.atributos = []  # alt, title e content de meta: também são texto visível ou lido
         self._ignorar = 0
 
     def handle_starttag(self, tag, attrs):
         self.tags.append((tag, dict(attrs)))
+        for nome, valor in attrs:
+            if valor and (nome in ("alt", "title", "aria-label") or (tag == "meta" and nome == "content")):
+                self.atributos.append(valor)
         if tag in ("script", "style", "head"):
             self._ignorar += 1
 
@@ -57,15 +62,17 @@ def verificar():
                 falhas.append(f"arquivo inexistente no CSS: {url}")
 
     zap = [a for t, a in p.tags if t == "a" and "wa.me" in a.get("href", "")]
-    if not zap:
-        falhas.append("nenhum link do WhatsApp")
+    if len(zap) != QTD_BOTOES:
+        falhas.append(f"esperados {QTD_BOTOES} links do WhatsApp, achei {len(zap)}")
     for a in zap:
         if a["href"] != WHATSAPP:
             falhas.append(f"link do WhatsApp diferente: {a['href']}")
         if a.get("target") != "_blank":
             falhas.append(f"link do WhatsApp sem target=_blank: {a['href']}")
+        if "noopener" not in a.get("rel", ""):
+            falhas.append(f"link do WhatsApp sem rel=noopener: {a['href']}")
 
-    texto = " ".join(p.texto).lower()
+    texto = " ".join(p.texto + p.atributos).lower()
     for palavra in PROIBIDAS:
         if palavra in texto:
             falhas.append(f"texto proibido na página: {palavra!r}")
@@ -79,8 +86,11 @@ def verificar():
         falhas.append("falta <title>")
     if not tem(lambda t, a: t == "meta" and a.get("name") == "description"):
         falhas.append("falta meta description")
-    if not tem(lambda t, a: t == "meta" and a.get("property") == "og:image"):
+    og = [a.get("content", "") for t, a in p.tags if t == "meta" and a.get("property") == "og:image"]
+    if not og:
         falhas.append("falta og:image")
+    elif not og[0].startswith("https://"):
+        falhas.append(f"og:image precisa de endereço absoluto: {og[0]}")
     if not tem(lambda t, a: t == "link" and a.get("rel") == "icon"):
         falhas.append("falta link rel=icon")
     return falhas
