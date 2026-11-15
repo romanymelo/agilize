@@ -106,7 +106,7 @@ code { font-size: .9em; color: var(--verde); }
 .duas-colunas { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
 .duas-colunas > .figura { margin-top: 0; }
 .detalhes p { color: var(--apoio); font-size: 16px; }
-.print-pequeno { margin-top: 24px; max-width: 380px; }
+.print-pequeno { margin-top: 24px; max-width: min(380px, 100%); }
 .lista-detalhes { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
 .lista-detalhes li { padding-left: 18px; border-left: 2px solid var(--grad-a); }
 
@@ -125,3 +125,21 @@ code { font-size: .9em; color: var(--verde); }
 .rodape-linha { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .rodape img { height: 52px; width: auto; }
 .rodape p { margin: 0; color: var(--sutil); font-size: 14px; }
+
+/* Celular e tablet */
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .container { padding-inline: 16px; }
+  .topo { padding: 48px 0 56px; }
+  .topo h1 { font-size: 34px; }
+  .apoio { font-size: 17px; }
+  .comparativo { flex-direction: column; gap: 12px; }
+  .cta { display: block; text-align: center; padding-inline: 16px; }
+  .cta-pequeno { display: inline-block; }
+  .print-topo { margin-top: 32px; }
+  .secao { padding: 56px 0; }
+  .grade, .tres-passos, .duas-colunas { grid-template-columns: minmax(0, 1fr); }
+  .duas-colunas { gap: 28px; }
+  .rodape-linha { flex-direction: column; text-align: center; }
+  .rodape .cta { width: 100%; }
+}
