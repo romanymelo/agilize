@@ -37,8 +37,127 @@
       <img class="print print-topo" src="img/app-em-execucao.png" alt="Tela do Agilize Relatórios emitindo relatórios e guias" width="900" height="600">
     </div>
   </section>
-<!-- SECOES -->
+
+  <section class="secao" id="dor">
+    <div class="container estreito">
+      <h2 class="titulo-secao">Todo mês, empresa por empresa</h2>
+      <p class="intro">Para tirar a situação fiscal de <em>um</em> cliente no portal da SEFAZ/AL, o caminho é sempre o mesmo:</p>
+      <ol class="passos-manuais">
+        <li>Abrir o portal e fazer login com a Inscrição Estadual e a senha</li>
+        <li>Navegar até Relatórios → Contribuinte</li>
+        <li>Emitir cada relatório, esperar o pop-up e salvar o PDF</li>
+        <li>Repetir em outros dois sistemas do portal</li>
+        <li>Entrar na Cobrança DF-e, escolher a competência e emitir o relatório e o DAR do Antecipado e da ST</li>
+        <li>Sair e recomeçar com a próxima empresa</li>
+      </ol>
+      <p class="fecho">Multiplicado por dezenas de clientes, todo mês.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="emite">
+    <div class="container">
+      <h2 class="titulo-secao">O que ele emite</h2>
+      <p class="intro">Tudo numa única execução, para uma empresa ou para a carteira inteira.</p>
+      <div class="grade">
+        <article class="card"><h3>Malha Fiscal</h3><p>Os 3 relatórios da malha, salvos em PDF.</p></article>
+        <article class="card"><h3>NF de Entrada</h3><p>Notas fiscais de entrada, com filtro por período.</p></article>
+        <article class="card"><h3>Omissões de entrega</h3><p>O relatório de omissões de cada empresa.</p></article>
+        <article class="card"><h3>Extrato de Pendências</h3><p>As pendências da empresa no portal.</p></article>
+        <article class="card"><h3>Guia Antecipado</h3><p>Relatório completo e DAR em PDF, por competência ou período. Marcados separadamente.</p></article>
+        <article class="card"><h3>Guia Substituição Tributária</h3><p>Relatório e DAR da ST, também separados: dá para tirar só o relatório.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como">
+    <div class="container">
+      <h2 class="titulo-secao">Como funciona</h2>
+      <ol class="tres-passos">
+        <li><span class="num">1</span><h3>Importe a planilha</h3><p>Uma linha por empresa: Inscrição Estadual, senha e nome. Ou consulte uma empresa só.</p></li>
+        <li><span class="num">2</span><h3>Marque o que quer</h3><p>Relatórios, guias, período das notas e competência.</p></li>
+        <li><span class="num">3</span><h3>Clique em Iniciar</h3><p>O programa faz o resto e mostra o andamento empresa por empresa.</p></li>
+      </ol>
+      <figure class="figura">
+        <img class="print" src="img/planilha-modelo.png" alt="Modelo da planilha com IE, senha e nome da empresa" width="926" height="326" loading="lazy">
+        <figcaption>A planilha de entrada: três colunas, uma empresa por linha.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="secao" id="telas">
+    <div class="container">
+      <h2 class="titulo-secao">O resultado</h2>
+      <div class="duas-colunas">
+        <figure class="figura">
+          <img class="print" src="img/pasta-resultado.png" alt="Pasta de destino com uma subpasta por empresa" width="1094" height="750" loading="lazy">
+          <figcaption>Uma pasta por empresa, com os PDFs nomeados como <code>Empresa_IE_Relatório.pdf</code>.</figcaption>
+        </figure>
+        <figure class="figura">
+          <img class="print" src="img/app-lote.png" alt="Programa no modo em lote com a planilha importada" width="900" height="600" loading="lazy">
+          <figcaption>O modo em lote, com a carteira importada da planilha.</figcaption>
+        </figure>
+      </div>
+      <figure class="figura">
+        <img class="print" src="img/resultado-status.png" alt="Planilha de resultado com a coluna Status de cada empresa" width="1486" height="326" loading="lazy">
+        <figcaption>Ao final, a planilha de status marca cada empresa como Sucesso, Sem guia ou com o erro encontrado. Nenhuma falha passa despercebida.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="secao" id="detalhes">
+    <div class="container">
+      <h2 class="titulo-secao">Pensado para o dia a dia do fiscal</h2>
+      <div class="duas-colunas detalhes">
+        <div>
+          <h3>Guia vencida? Você escolhe a data</h3>
+          <p>Quando a guia está vencida, o programa mostra a empresa, o tipo e o total a pagar e pede a data limite de pagamento, que define multa e juros. Dá para pular a guia ou usar a mesma data nas próximas empresas do lote. Se o portal recusar a data (fim de semana, feriado), a janela volta com o motivo.</p>
+          <img class="print print-pequeno" src="img/guia-vencida.png" alt="Janela de escolha da data limite da guia vencida" width="380" height="340" loading="lazy">
+        </div>
+        <ul class="lista-detalhes">
+          <li><h3>Sem guia, com prova</h3><p>Se a empresa não tem guia na competência, nada é emitido: o programa salva um print da tela com a aba contornada em vermelho.</p></li>
+          <li><h3>Sem pagar DAR cancelado</h3><p>Ao reemitir, o portal cancela o DAR anterior. O programa apaga os arquivos de DAR antigos daquela competência para ninguém pagar o errado.</p></li>
+          <li><h3>Um erro não para o lote</h3><p>A falha em um relatório não derruba a empresa, e a falha em uma empresa não derruba o lote. Tudo vai para a planilha de status.</p></li>
+          <li><h3>Uma pasta por empresa</h3><p>Os arquivos já saem organizados. A pasta só é criada se algo for salvo.</p></li>
+        </ul>
+      </div>
+      <figure class="figura">
+        <img class="print" src="img/sem-guia-aba.png" alt="Print da aba sem guia contornada em vermelho" width="1440" height="120" loading="lazy">
+        <figcaption>O registro de "sem guia": a aba vazia contornada em vermelho.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="secao" id="requisitos">
+    <div class="container estreito">
+      <h2 class="titulo-secao">O que você precisa</h2>
+      <ul class="requisitos">
+        <li><strong>Windows</strong><span>O programa é um aplicativo para Windows.</span></li>
+        <li><strong>Google Chrome instalado</strong><span>Ele usa o Chrome do computador para acessar o portal.</span></li>
+        <li><strong>Empresas na SEFAZ/AL</strong><span>Funciona com o portal da Secretaria da Fazenda de Alagoas.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao final" id="teste">
+    <div class="container estreito">
+      <h2 class="titulo-secao">Como funciona o teste</h2>
+      <ol class="tres-passos">
+        <li><span class="num">1</span><h3>Fale comigo no WhatsApp</h3><p>Peça o seu acesso de teste.</p></li>
+        <li><span class="num">2</span><h3>Use por 7 dias</h3><p>Rode com a sua carteira de verdade.</p></li>
+        <li><span class="num">3</span><h3>Gostou? Assine</h3><p>Você continua usando sem interrupção.</p></li>
+      </ol>
+      <a class="cta" href="https://wa.me/5582993079508?text=Ol%C3%A1%21%20Quero%20testar%20o%20Agilize%20Relat%C3%B3rios%20por%207%20dias." target="_blank" rel="noopener">Testar 7 dias grátis no WhatsApp</a>
+    </div>
+  </section>
 </main>
+
+<footer class="rodape">
+  <div class="container rodape-linha">
+    <img src="img/logo.png" alt="Agilize Relatórios" width="351" height="291" loading="lazy">
+    <a class="cta cta-pequeno" href="https://wa.me/5582993079508?text=Ol%C3%A1%21%20Quero%20testar%20o%20Agilize%20Relat%C3%B3rios%20por%207%20dias." target="_blank" rel="noopener">Testar 7 dias grátis no WhatsApp</a>
+    <p>© 2026 Agilize Relatórios</p>
+  </div>
+</footer>
 
 </body>
 </html>
