@@ -141,5 +141,4 @@ code { font-size: .9em; color: var(--verde); }
   .grade, .tres-passos, .duas-colunas { grid-template-columns: minmax(0, 1fr); }
   .duas-colunas { gap: 28px; }
   .rodape-linha { flex-direction: column; text-align: center; }
-  .rodape .cta { width: 100%; }
 }
