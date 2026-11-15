@@ -2,9 +2,8 @@
 .superpowers/
 __pycache__/
 
-# Fora do site: documentação interna e scripts de verificação
-docs/
-testes/
+# Prints gerados pela verificação
+testes/saida/
 
 # Sistema
 Thumbs.db
